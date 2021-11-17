@@ -33,7 +33,6 @@ namespace Gade6112
         public Shop shopObject;
 
 
-
         public GameEngine(int _minHeight, int _maxHeight, int _minWidth, int _maxWidth, int _numEnemies)       //when class is created a new map is made and filled 
         {
             engineMap = new Map(_minHeight, _maxHeight, _minWidth, _maxWidth, _numEnemies, 3, 3);
