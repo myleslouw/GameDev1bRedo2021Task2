@@ -108,7 +108,6 @@ namespace Gade6112
             for (int i = 0; i < gameEngine.EngineMap.EnemiesArray.GetLength(0); i++)
             {
 
-
                 if (gameEngine.EngineMap.EnemiesArray[i] is Goblin)
                 {
                     gameEngine.MoveEnemies(gameEngine.EngineMap.EnemiesArray[i].ReturnMovement(), i);  //goes to game engine to chenge their pos in the map array
