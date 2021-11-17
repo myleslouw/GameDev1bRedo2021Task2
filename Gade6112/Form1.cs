@@ -138,7 +138,6 @@ namespace Gade6112
 
         private void btn_Up_Click(object sender, EventArgs e)
         {
-
             gameEngine.MovePlayer(gameEngine.EngineMap.Hero.ReturnMovement(Character.movement.Up));     //movement is sent to hero ReturnMovement, it checks if valid, returns a movement and sent to the game engine MovePlayer which will move player and chenge its x and y pos
             rtb_HitAlert.Text = "";   //once moved it will reset the box that says if there was a hit
             leaderMovement = Character.movement.Up;
