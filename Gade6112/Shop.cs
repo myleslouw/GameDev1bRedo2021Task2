@@ -15,7 +15,6 @@ namespace Gade6112
 
         public Shop(Character _buyer)
         {
-
             buyer = _buyer;
             weaponArray = new Weapon[3]; //3 lots
             rndm = new Random();
