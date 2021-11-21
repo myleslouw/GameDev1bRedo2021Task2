@@ -109,7 +109,7 @@ namespace Gade6112
             }
         }
 
-        private int DistanceTo(Character target)
+        public int DistanceTo(Character target)
         {
             return Math.Abs(X = target.X + Math.Abs(Y - target.Y));
           

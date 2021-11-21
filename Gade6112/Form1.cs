@@ -123,8 +123,14 @@ namespace Gade6112
                 }
                 if (gameEngine.EngineMap.EnemiesArray[i] is Leader)
                 {
-                    gameEngine.MoveEnemies(gameEngine.EngineMap.EnemiesArray[i].ReturnMovement(leaderMovement), i);   //goes to the game engine to change the pos which goes in the same direction as the hero movement
+                    
                     Leader tempLeader = (Leader)gameEngine.EngineMap.EnemiesArray[i];   //casts to leader in order to attack
+
+                    gameEngine.MoveEnemies(gameEngine.EngineMap.EnemiesArray[i].ReturnMovement(leaderMovement), i);
+
+                   // gameEngine.MoveEnemies(gameEngine.EngineMap.EnemiesArray[i].ReturnMovement(tempLeader.CalculatePath(gameEngine.EngineMap.Hero, tempLeader.CharacterVision)), i);   //moves the leader in the direction of the shortest path to the hero
+
+
                     tempLeader.AttackHero();  //attacks the hero if in range
                 }
             }
@@ -132,6 +138,7 @@ namespace Gade6112
             DisplayMap();  //after all moves and attacks it updates the map
         }
 
+       
 
         //BUttons
 

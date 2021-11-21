@@ -9,7 +9,15 @@ namespace Gade6112
     [Serializable]
     class Leader : Enemy
     {
-        private Tile Target;
+
+        private Tile tile;
+
+        public Tile Target    //the hero
+        {
+            get { return tile; }
+            set { tile = value; }
+        }
+
         private int rndmEnum;
         Random rndm;
         private Weapon currentWeaponObject;
@@ -23,6 +31,7 @@ namespace Gade6112
             HP = 20;
             Damage = 2;
             Symbol = "L";
+
 
             rndm = new Random();
         }
@@ -40,7 +49,7 @@ namespace Gade6112
                 case movement.Up:
                     if (CharacterVision[0] is EmptyTile)
                     {
-                        return movement.Up;
+                        return move;
                     }
                     else if (CharacterVision[0] is Weapon)
                     {
@@ -56,7 +65,7 @@ namespace Gade6112
                 case movement.Down:
                     if (CharacterVision[1] is EmptyTile)
                     {
-                        return movement.Down;
+                        return move;
                     }
                     else if (CharacterVision[1] is Weapon)
                     {
@@ -72,7 +81,7 @@ namespace Gade6112
                 case movement.Left:
                     if (CharacterVision[2] is EmptyTile)
                     {
-                        return movement.Left;
+                        return move;
                     }
                     else if (CharacterVision[2] is Weapon)
                     {
@@ -88,7 +97,7 @@ namespace Gade6112
                 case movement.Right:
                     if (CharacterVision[3] is EmptyTile)
                     {
-                        return movement.Right;
+                        return move;
                     }
                     else if (CharacterVision[3] is Weapon)
                     {
@@ -104,6 +113,61 @@ namespace Gade6112
             }
             return movement.noMvm;
         }
+
+        public Character.movement CalculatePath(Character target, Tile[] vision)
+        {
+            int[] distances = new int[4];              //an array of 4 ints for the distances from each vision tile to the hero
+             
+            for (int i = 0; i < vision.Length; i++)    //takes each tile in vision 
+            {
+                Character tempSpot = (Character)vision[i];   //casts to a character to access the distanceTo method
+
+                distances[i] = DistanceTo(target);       //adds all the distances of the vision array tiels to the hero
+
+            }
+
+            return LeaderDirectionParser(Lowest(distances));      //returns the direction to go for the shortest path
+        }
+
+
+        public int Lowest(int[] inputs)
+        {
+            int pos = 0;   //the position of the element in the array
+
+            for (int i = 0; i < inputs.Length; i++)     //searches all distances
+            {
+                if (inputs[i] < inputs[pos])   //finds the smallest element 
+                {
+                    pos = i;
+                }
+            }
+            return pos;   //returns its position in the vision array
+        }
+
+        public Character.movement LeaderDirectionParser(int index)    //changes the which tile it should move to, to a direction enum
+        {
+            switch (index)
+            {
+                case 0:
+
+                    return movement.Up;
+
+                case 1:
+
+                    return movement.Down;
+
+                case 2:
+
+                    return movement.Left;
+
+                case 3:
+
+                    return movement.Right;
+
+            }
+            return movement.noMvm;
+        }
+
 
         public movement randomDirection()
         {
@@ -124,7 +188,7 @@ namespace Gade6112
                     }
                     else
                     {
-                        return randomDirection(); 
+                        return randomDirection();
                     }
                 case 1:
                     if (CharacterVision[1] is EmptyTile)
