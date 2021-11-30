@@ -246,7 +246,7 @@ namespace Gade6112
                 {
 
                     gameEngine.EngineMap.Hero.Loot(gameEngine.currentEnemy);  //loots the enemy once it dies
-
+                     
                     if (gameEngine.EngineMap.Hero.CurrentWeapon == null)
                     {
                         rtb_HitAlert.Text = "Picked up " + gameEngine.currentEnemy.GoldCount + " Gold";
