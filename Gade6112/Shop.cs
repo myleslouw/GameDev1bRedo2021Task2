@@ -73,7 +73,7 @@ namespace Gade6112
 
         public string DisplayWeapon(int num)
         {
-            return "Buy " + weaponArray[num].TypeString + "(" + weaponArray[num].WeaponCost + " Gold)";
+            return "Buy " + weaponArray[num].weaponTypeString + "(" + weaponArray[num].WeaponCost + " Gold)";
         }
     }
 }

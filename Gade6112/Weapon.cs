@@ -42,7 +42,7 @@ namespace Gade6112
             set { weaponCost = value; }
         }
 
-        public string TypeString; //the name of the weapon
+        public string weaponTypeString; //the name of the weapon
 
         public Weapon(int y, int x, string symbol) : base(y, x, symbol)
         {

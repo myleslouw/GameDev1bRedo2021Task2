@@ -31,7 +31,8 @@ namespace Gade6112
             HP = 20;
             Damage = 2;
             Symbol = "L";
-
+            currentWeapon = new MeleeWeapon(Y, X,  "/", MeleeWeapon.Types.Longsword);
+            GoldCount = 2;
 
             rndm = new Random();
         }
@@ -228,12 +229,12 @@ namespace Gade6112
             string className = "Leader";
             if (CurrentWeapon == null)
             {
-                enemyInfo = "Barehanded: " + className + " (" + this.hp + "/" + this.maxHp + ") at [" + X + ", " + Y + "] [" + damage + " DMG]";
+                enemyInfo = "Barehanded: " + className + " (" + this.hp + "/" + this.maxHp + " HP) at [" + X + ", " + Y + "] [" + damage + " DMG]";
                 return enemyInfo;
             }
             else
             {
-                enemyInfo = "Equipped: " + className + " (" + this.hp + "/" + this.maxHp + ") at [" + X + ", " + Y + "] with " + CurrentWeapon.TypeString + " [" + currentWeapon.Damage + " DMG]";
+                enemyInfo = "Equipped: " + className + " (" + this.hp + "/" + this.maxHp + " HP) at [" + X + ", " + Y + "] with " + CurrentWeapon.weaponTypeString + " [" + currentWeapon.Damage + " DMG]";
                 return enemyInfo;
             }
         }

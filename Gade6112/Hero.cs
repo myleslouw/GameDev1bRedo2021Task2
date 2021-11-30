@@ -21,7 +21,7 @@ namespace Gade6112
             Damage = 2;
             Symbol = "H";
 
-            GoldCount = 5;  //Start With 5 gold to make it easier to play and test
+            GoldCount = 0;  //Start With 5 gold to make it easier to play and test
 
         }
 
@@ -155,7 +155,7 @@ namespace Gade6112
             }
             else
             {
-                heroInfo = "Player Stats: \n HP: " + HP + " / " + MaxHP + " | Current Weapon: " + currentWeapon + "\n Weapon Range: " + currentWeapon.Range + "\n Weapon Damage: " + currentWeapon.Damage + "\n Durability: " + currentWeapon.Durabilty + "\n [" + X + " , " + Y + "]. Gold = " + GoldCount;
+                heroInfo = "Player Stats: \n HP: " + HP + " / " + MaxHP + " | Current " + currentWeapon + "\n Weapon Range: " + currentWeapon.Range + "\n Weapon Damage: " + currentWeapon.Damage + "\n Durability: " + currentWeapon.Durabilty + "\n [" + X + " , " + Y + "]. Gold = " + GoldCount;
                 return heroInfo;
             }
         }

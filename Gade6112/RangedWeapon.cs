@@ -22,7 +22,7 @@ namespace Gade6112
             {
                 case Types.Rifle:
                     Symbol = "*";
-                    TypeString = "Rifle";
+                    weaponTypeString = "Rifle";
                     Durabilty = 3;
                     Range = 3;
                     Damage = 5;
@@ -31,7 +31,7 @@ namespace Gade6112
 
                 case Types.Longbow:
                     Symbol = "^";
-                    TypeString = "Longbow";
+                    weaponTypeString = "Longbow";
                     Durabilty = 4;
                     Range = 2;
                     Damage = 4;
@@ -45,7 +45,7 @@ namespace Gade6112
         }
         public override string ToString()
         {
-            return "Weapon: " + this.TypeString;
+            return "Weapon: " + this.weaponTypeString;
         }
     }
 }

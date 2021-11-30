@@ -20,7 +20,9 @@ namespace Gade6112
             MaxHP = 10;
             Damage = 1;
             Symbol = "G";
-            //currentWeapon = ;
+            currentWeapon = new MeleeWeapon(Y, X, "-", MeleeWeapon.Types.Dagger);
+
+            GoldCount = 1;
 
             rndm = new Random();
         }
@@ -108,12 +110,12 @@ namespace Gade6112
             string className = "Goblin";
             if (CurrentWeapon == null)
             {
-                enemyInfo = "Barehanded: " + className + " (" + this.hp + "/" + this.maxHp + ") at [" + X + ", " + Y + "] [" + damage + " DMG]";
+                enemyInfo = "Barehanded: " + className + " (" + this.hp + "/" + this.maxHp + " HP) at [" + X + ", " + Y + "] [" + damage + " DMG]";
                 return enemyInfo;
             }
             else
             {
-                enemyInfo = "Equipped: " + className + " (" + this.hp + "/" + this.maxHp + ") at [" + X + ", " + Y + "] with " + CurrentWeapon.TypeString + " [" + currentWeapon.Damage + " DMG]";
+                enemyInfo = "Equipped: " + className + " (" + this.hp + "/" + this.maxHp + " HP) at [" + X + ", " + Y + "] with " + CurrentWeapon.weaponTypeString + " [" + currentWeapon.Damage + " DMG]";
                 return enemyInfo;
             }
         }

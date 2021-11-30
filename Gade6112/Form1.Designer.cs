@@ -181,7 +181,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(434, 390);
+            this.label2.Location = new System.Drawing.Point(400, 387);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 16);
             this.label2.TabIndex = 28;
@@ -190,7 +190,7 @@
             // lbl_EnemiesList
             // 
             this.lbl_EnemiesList.AutoSize = true;
-            this.lbl_EnemiesList.Location = new System.Drawing.Point(434, 415);
+            this.lbl_EnemiesList.Location = new System.Drawing.Point(400, 412);
             this.lbl_EnemiesList.Name = "lbl_EnemiesList";
             this.lbl_EnemiesList.Size = new System.Drawing.Size(86, 13);
             this.lbl_EnemiesList.TabIndex = 29;

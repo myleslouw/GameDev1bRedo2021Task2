@@ -141,6 +141,18 @@ namespace Gade6112
 
         }
 
+        public void Loot(Character deadCharacter)
+        {
+            GoldCount += deadCharacter.goldCount;  //gives the character the dead characters gold
+
+            if (currentWeapon == null)  //if the character doestn have a weappon it will be given the dead characters weapon
+            {
+                currentWeapon = deadCharacter.currentWeapon;
+            }
+
+
+        }
+
         public abstract movement ReturnMovement(movement move = 0);
 
         public abstract override string ToString();

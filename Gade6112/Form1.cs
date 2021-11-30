@@ -29,12 +29,20 @@ namespace Gade6112
         {
             InitializeComponent();
             btn_Start.Visible = true;
+            btn_Save.Visible = false;
+            btn_Load.Visible = false;
+            btn_left.Visible = false;
+            btn_Right.Visible = false;
+            btn_Up.Visible = false;
+            btn_Down.Visible = false;
+            btn_Attack.Visible = false;
+
 
         }
 
         private void btn_Start_Click(object sender, EventArgs e)    //starts the game once inputs are all there
         {
-            MessageBox.Show("Players Start with 5 Gold \nEnemies are designed to move after 0,5 seconds after player move to look more like a game");
+            MessageBox.Show("Enemies are designed to move after 0,5 seconds after player move to look more like a game");
 
             gameEngine = new GameEngine(8, 12, 8, 12, 3);     //creates a game engine and gives it params to make the map
 
@@ -46,7 +54,18 @@ namespace Gade6112
             btn_shopItem1.Text = gameEngine.shopObject.DisplayWeapon(0);
             btn_shopItem2.Text = gameEngine.shopObject.DisplayWeapon(1);
             btn_shopItem3.Text = gameEngine.shopObject.DisplayWeapon(2);
+
+
+            //makes the save and load and other buttons visiable
+            btn_Save.Visible = true;
+            btn_Load.Visible = true;
+            btn_left.Visible = true;
+            btn_Right.Visible = true;
+            btn_Up.Visible = true;
+            btn_Down.Visible = true;
+            btn_Attack.Visible = true;
         }
+
         public void DisplayMap() //main Display method
         {
             if (gameEngine.EngineMap.Hero.isDead())
@@ -225,7 +244,15 @@ namespace Gade6112
 
                 if (gameEngine.currentEnemy.isDead())  //if the health of the attacked player gets to 0 or below it will replace the enemy with an empty tile
                 {
-                    //gameEngine.EngineMap.MapArray[gameEngine.EngineMap.Hero.CharacterVision[lb_UpdateScreen.SelectedIndex].Y, gameEngine.EngineMap.Hero.CharacterVision[lb_UpdateScreen.SelectedIndex].X] = null;
+
+                    gameEngine.EngineMap.Hero.Loot(gameEngine.currentEnemy);  //loots the enemy once it dies
+
+                    if (gameEngine.EngineMap.Hero.CurrentWeapon == null)
+                    {
+                        rtb_HitAlert.Text = "Picked up " + gameEngine.currentEnemy.GoldCount + " Gold";
+
+                    }
+
                     gameEngine.EngineMap.MapArray[gameEngine.EngineMap.Hero.CharacterVision[lb_UpdateScreen.SelectedIndex].Y, gameEngine.EngineMap.Hero.CharacterVision[lb_UpdateScreen.SelectedIndex].X] = new EmptyTile(gameEngine.EngineMap.Hero.CharacterVision[lb_UpdateScreen.SelectedIndex].X, gameEngine.EngineMap.Hero.CharacterVision[lb_UpdateScreen.SelectedIndex].Y, ".");
                 }
                 DisplayMap();

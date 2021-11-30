@@ -18,6 +18,8 @@ namespace Gade6112
             Damage = 5;
             Symbol = "M";
 
+            GoldCount = 3;
+
 
 
         }
@@ -66,7 +68,7 @@ namespace Gade6112
             string enemyInfo;
             string className = "Mage";
 
-            enemyInfo = "Barehanded: " + className + " (" + this.hp + "/" + this.maxHp + ") at [" + X + ", " + Y + "] [" + damage + " DMG]";
+            enemyInfo = "Barehanded: " + className + " (" + this.hp + "/" + this.maxHp + " HP) at [" + X + ", " + Y + "] [" + damage + " DMG]";
             return enemyInfo;
         }
     }

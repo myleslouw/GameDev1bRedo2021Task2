@@ -23,7 +23,7 @@ namespace Gade6112
             {
                 case Types.Dagger:
                     Symbol = "-";
-                    TypeString = "Dagger";
+                    weaponTypeString = "Dagger";
                     Durabilty = 10;
                     Damage = 3;
                     WeaponCost = 3;
@@ -31,7 +31,7 @@ namespace Gade6112
 
                 case Types.Longsword:
                     Symbol = "/";
-                    TypeString = "Longsword";
+                    weaponTypeString = "Longsword";
                     Durabilty = 6;
                     Damage = 4;
                     WeaponCost = 5;
@@ -45,7 +45,7 @@ namespace Gade6112
 
         public override string ToString()
         {
-            return "Weapon: " + this.TypeString;
+            return "Weapon: " + this.weaponTypeString;
         }
     }
 }
