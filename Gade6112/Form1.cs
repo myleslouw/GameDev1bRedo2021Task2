@@ -82,6 +82,7 @@ namespace Gade6112
             //anything to extra here
             gameEngine.EngineMap.UpdateVision();  //updates the vision everytime the map is reloaded
             checkSurroundings();
+            CheckShop();
 
         }
 
@@ -138,6 +139,35 @@ namespace Gade6112
             DisplayMap();  //after all moves and attacks it updates the map
         }
 
+        public void CheckShop()   //enabels and disables buttons according to gold count
+        {
+            if (gameEngine.shopObject.CanBuy(0))  //if the player has enough to buy the 1st weapon
+            {
+                btn_shopItem1.Enabled = true;  //enable button
+            }
+            else
+            {
+                btn_shopItem1.Enabled = false;   //disable the button if it doesnt have enough
+            }
+
+            if (gameEngine.shopObject.CanBuy(1))  //if the player has enough to buy the 2nd weapon
+            {
+                btn_shopItem2.Enabled = true; 
+            }
+            else
+            {
+                btn_shopItem2.Enabled = false;
+            }
+
+            if (gameEngine.shopObject.CanBuy(2))  //if the player has enough to buy the 3rd weapon
+            {
+                btn_shopItem3.Enabled = true;
+            }
+            else
+            {
+                btn_shopItem3.Enabled = false;
+            }
+        }
        
 
         //BUttons
